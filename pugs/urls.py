@@ -20,4 +20,5 @@ import app.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', app.views.index),
+    path('dodaj', app.views.dodaj),
 ]
