@@ -4,5 +4,11 @@ from django.shortcuts import render
 def index(request):
 	return render(request, 'index.html')
 
+def nowy(request):
+	return render(request, 'nowy.html')
+
 def dodaj(request):
-	return render(request, 'dodaj.html')
+	return render(request, 'index.html')
+
+def skasuj(request):
+	return render(request, 'index.html')
