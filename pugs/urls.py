@@ -20,5 +20,7 @@ import app.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', app.views.index),
+    path('nowy', app.views.nowy),
     path('dodaj', app.views.dodaj),
+    path('skasuj', app.views.skasuj),
 ]
