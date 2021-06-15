@@ -1,11 +1,14 @@
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
+import logging
+logger = logging.getLogger('django.server')
 
 # Create your views here.
 def index(request):
 	return lista(request)
 
 def nowy(request):
+	logger.error('xxx nowy mops')
 	return render(request, 'nowy.html')
 
 @csrf_exempt
