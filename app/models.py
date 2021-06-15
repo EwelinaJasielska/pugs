@@ -11,10 +11,3 @@ class Pug(models.Model):
 	def __str__(self):
 		return self.imie
 	
-	def insert(imie, kolor, wiek):
-		logger.error('...insert imie:'+imie+ ' kolor:'+kolor+' wiek:'+wiek)
-		try:
-			p = Pug(imie = imie, kolor = kolor, wiek = wiek)
-			p.save
-		except:
-			logger.error('...insert ERROR')

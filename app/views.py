@@ -20,7 +20,11 @@ def dodaj(request):
 	wiek = request.POST.get("wiek", "")
 	logger.error('...dodaj imie:'+imie+ ' kolor:'+kolor+' wiek:'+wiek)
 	from app.models import Pug
-	Pug.insert(imie, kolor, wiek)
+	try:
+		p = Pug(imie = imie, kolor = kolor, wiek = wiek)
+		p.save
+	except:
+		logger.error('...insert ERROR')
 	return lista(request)
 
 @csrf_exempt
