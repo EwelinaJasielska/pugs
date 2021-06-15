@@ -22,5 +22,5 @@ urlpatterns = [
     path('', app.views.index),
     path('nowy', app.views.nowy),
     path('dodaj', app.views.dodaj),
-    path('skasuj', app.views.skasuj),
+    path('skasuj/<int>', app.views.skasuj),
 ]

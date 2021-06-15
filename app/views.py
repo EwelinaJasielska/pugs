@@ -31,9 +31,11 @@ def dodaj(request):
 		logger.error('...insert ERROR')
 	return lista(request)
 
-@csrf_exempt
-def skasuj(request):
+def skasuj(request, id):
 	logger.info('...skasuj')
+	from app.models import Pug
+	pug = Pug.objects.get(id = id) 
+	pug.delete()
 	return lista(request)
 
 def lista(request, messages = None):
