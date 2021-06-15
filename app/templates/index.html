@@ -50,7 +50,7 @@
 </picture>
 <h1>Lista mopsów</h1>
 <h3>by Ewelina Jasielska</h3>
-<button class="btn-green" type="submit" onclick="location.href='nowy'">+ Dodaj nowego mopsa</button>
+<button class="btn-green" type="submit" onclick="location.href='https://mopsy.herokuapp.com/nowy'">+ Dodaj nowego mopsa</button>
 <br/><br/>
 
 {% if mopsy %}
@@ -66,7 +66,7 @@
 			<td>{{mops.imie}}</td>
 			<td>{{mops.kolor}}</td>
 			<td>{{mops.wiek}}</td>
-			<td><button class="btn-red" type="submit" onclick="location.href='skasuj/{{mops.id}}'" >Usuń</button></td>
+			<td><button class="btn-red" type="submit" onclick="location.href='https://mopsy.herokuapp.com/skasuj/{{mops.id}}'" >Usuń</button></td>
 		<tr/>
 	{% endfor %}
 	</table>
