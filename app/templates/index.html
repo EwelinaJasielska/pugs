@@ -1,10 +1,40 @@
-<h2>Lista mopsów</h2>
+<body>
+{% if messages %}
+<ul class="messages">
+	{% for message in messages %}
+	<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+	{% endfor %}
+</ul>
+{% endif %}
+
+<h1>Lista mopsów</h1>
 <button type="submit" onclick="location.href='nowy'">Nowy mops</button>
+<br/>
 
 {% if mopsy %}
+	<table>
+		<tr>
+			<th>Imie</th>
+			<th>Kolor</th>
+			<th>Wiek</th>
+			<th></th>
+		<tr/>
 	{% for mops in mopsy %}
-	<li> {{mops.imie}} </li>
+		<tr>
+			<td>{{mops.imie}}</td>
+			<td>{{mops.kolor}}</td>
+			<td>{{mops.wiek}}</td>
+			<td><button>Usuń</button></td>
+		<tr/>
+	</table>
 	{% endfor %}
 {% else %}
     <p>Nie ma mopsów</p>
 {% endif %} 
+</body>
+<style>
+body: {
+	font-family:Arial;
+}
+
+</style>
