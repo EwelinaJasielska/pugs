@@ -42,6 +42,9 @@
     <br/><br/>
 
     <button class="btn-green" type="submit">+ Dodaj mopsa</button>
+    {% if error %}
+        <p class="msg-error"><b>{{error}}</b></p>
+    {% endif %}
 </form>
 
 </body>

@@ -41,9 +41,6 @@
 	</style>
 </head>
 <body class='app-common'>
-{% if error %}
-	<p class="msg-error">{{error}}</p>
-{% endif %}
 <picture>
 	<source type="image/webp" srcset="https://media0.giphy.com/media/11kgieHVYW53lC/giphy.webp?cid=82a1493bcwdnt4uej9ravx3uiqbqp1gmoyjli5vf8thrp9g0&amp;rid=giphy.webp&amp;ct=g">
 	<img class="giphy-gif-img giphy-img-loaded" src="https://media0.giphy.com/media/11kgieHVYW53lC/giphy.gif?cid=82a1493bcwdnt4uej9ravx3uiqbqp1gmoyjli5vf8thrp9g0&amp;rid=giphy.gif&amp;ct=g" width="221" height="166" alt="Dog Baby GIF" style="background: rgb(0, 255, 153);">
@@ -51,7 +48,11 @@
 <h1>Lista mopsów</h1>
 <h3>by Ewelina Jasielska</h3>
 <button class="btn-green" type="submit" onclick="location.href='https://mopsy.herokuapp.com/nowy'">+ Dodaj nowego mopsa</button>
-<br/><br/>
+{% if error %}
+	<p class="msg-error"><b>{{error}}</b></p>
+{% elif error %}
+	<br/><br/>
+{% endif %}
 
 {% if mopsy %}
 	<table>

@@ -8,9 +8,9 @@ def index(request):
 	logger.info('...index')
 	return lista(request)
 
-def nowy(request):
+def nowy(request, error = ""):
 	logger.info('...nowy')
-	return render(request, 'nowy.html')
+	return render(request, 'nowy.html', context = {'error':error})
 
 @csrf_exempt
 def dodaj(request):
@@ -19,7 +19,7 @@ def dodaj(request):
 	kolor = request.POST.get("kolor", "?")
 	wiek = request.POST.get("wiek", "?")
 	if not imie:
-		return lista(request, 'Imie mopsa nie moze byc puste !')
+		return dodaj(request, 'Imie mopsa nie moze byc puste !')
 	from app.models import Pug
 	try:
 		p = Pug(imie = imie, kolor = kolor, wiek = wiek)
