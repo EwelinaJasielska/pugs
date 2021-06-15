@@ -1,4 +1,6 @@
 from django.db import models
+import logging
+logger = logging.getLogger('django.server')
 
 # Create your models here.
 class Pug(models.Model):
@@ -9,6 +11,8 @@ class Pug(models.Model):
 	def __str__(self):
 		return self.imie
 	
-	def Insert(imie, kolor, wiek):
+	def insert(imie, kolor, wiek):
+		logger.error('...insert imie:'+imie+ ' kolor:'+kolor+' wiek:'+wiek)
+
 		p = Pug(imie = imie, kolor = kolor, wiek = wiek)
 		p.save
