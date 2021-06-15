@@ -5,6 +5,19 @@
 		font-family: arial, sans-serif;
 		text-align: center;
 	}
+    button {
+        padding: 10px;
+        color: white;
+    }
+    label {
+        padding: 10px;
+    }
+    .btn-green {
+        background: darkgreen;
+    }
+    .btn-red {
+        background: red;
+    }
 	</style>
 </head>
 <body>
@@ -14,19 +27,21 @@
 </picture>
 <h1>Nowy mops</h1>
 
-<form action="dodaj" method="post">
-    <label for="imie">Imie: </label>
-    <input id="imie" type="text" name="imie" />
+<button class="btn-red" type="submit" onclick="location.href='https://mopsy.herokuapp.com'">Powrót</button>
 
+<form action="dodaj" method="post">
+    <label for="imie">Imię: </label>
+    <input id="imie" type="text" name="imie" />
+    <br/><br/>
     <label for="wiek">Wiek: </label>
     <input id="wiek" type="text" name="wiek" />
-
+    <br/><br/>
     <label for="kolor">Kolor: </label>
     <input id="kolor" type="text" name="kolor" />
+    <br/><br/>
 
-    <input type="submit" value="Dodaj mopsa" />
+    <button class="btn-green" type="submit" value="Dodaj mopsa" />
 </form>
 
-<button type="submit" onclick="location.href=''">Powrót</button>
 </body>
 </html>
