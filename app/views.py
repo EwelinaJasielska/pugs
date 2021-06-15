@@ -36,7 +36,7 @@ def skasuj(request):
 	logger.info('...skasuj')
 	return lista(request)
 
-def lista(request, messages):
+def lista(request, messages = None):
 	from app.models import Pug
 	mopsy = Pug.objects.all()
 	for m in mopsy:
