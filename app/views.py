@@ -3,7 +3,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 def index(request):
-	return render(request, 'index.html')
+	lista(request)
 
 def nowy(request):
 	return render(request, 'nowy.html')
@@ -15,8 +15,13 @@ def dodaj(request):
 	wiek = request.POST.get("wiek", "")
 	from app.models import Pug
 	Pug.Insert(imie, kolor, wiek)
-	return render(request, 'index.html')
+	lista(request)
 
 @csrf_exempt
 def skasuj(request):
 	return render(request, 'index.html')
+
+def lista(request):
+	from app.models import Pug
+	mopsy = Pug.objects.all()
+	return render(request, 'index.html', context={'mopsy': mopsy})

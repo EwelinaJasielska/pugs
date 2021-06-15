@@ -1,2 +1,10 @@
 <h2>Lista mopsów</h2>
 <button type="submit" onclick="location.href='nowy'">Nowy mops</button>
+
+{% if mopsy %}
+	{% for mops in mopsy %}
+	<li> mops.imie </li>
+	{% endfor %}
+{% else %}
+    <p>Nie ma mopsów</p>
+{% endif %} 
