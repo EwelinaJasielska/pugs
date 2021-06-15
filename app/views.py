@@ -10,6 +10,11 @@ def nowy(request):
 
 @csrf_exempt
 def dodaj(request):
+	imie = request['imie']
+	kolor = request['kolor']
+	wiek = request['wiek']
+	from app.models import Pug
+	Pug.Insert(imie, kolor, wiek)
 	return render(request, 'index.html')
 
 @csrf_exempt
