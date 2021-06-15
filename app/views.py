@@ -36,5 +36,5 @@ def lista(request):
 	from app.models import Pug
 	mopsy = Pug.objects.all()
 	for m in mopsy:
-		logger.info('... id:'+m.id+' imie:'+m.imie+' kolor'+m.kolor+' wiek:'+m.wiek)
+		logger.info('... id:'+str(m.id)+' imie:'+m.imie+' kolor'+m.kolor+' wiek:'+m.wiek)
 	return render(request, 'index.html', context={'mopsy': mopsy})
