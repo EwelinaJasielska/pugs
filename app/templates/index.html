@@ -2,10 +2,23 @@
 <head>
 	<style>
 	body {
-		font-family: Arial;
-		padding: 15px;
-		margin: 10px;
-		background: lightblue;
+		font-family: arial, sans-serif;
+	}
+	table {
+		border-collapse: collapse;
+		width: 100%;
+	}
+	td, th {
+		border: 1px solid #dddddd;
+		text-align: left;
+		padding: 8px;
+	}
+	tr:nth-child(even) {
+		background-color: #dddddd;
+	}
+	.btn-delete {
+		background-color: red;
+		color: white;
 	}
 
 	</style>
@@ -36,7 +49,7 @@
 			<td>{{mops.imie}}</td>
 			<td>{{mops.kolor}}</td>
 			<td>{{mops.wiek}}</td>
-			<td><button>Usuń</button></td>
+			<td><button class="btn-delete" type="submit" onclick="location.href='skasuj/id={{mops.id}}'" >Usuń</button></td>
 		<tr/>
 	{% endfor %}
 	</table>
