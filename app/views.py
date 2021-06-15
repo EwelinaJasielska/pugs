@@ -22,7 +22,7 @@ def dodaj(request):
 	from app.models import Pug
 	try:
 		p = Pug(imie = imie, kolor = kolor, wiek = wiek)
-		p.save
+		p.save(force_insert=True)
 	except:
 		logger.error('...insert ERROR')
 	return lista(request)
