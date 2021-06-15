@@ -33,7 +33,8 @@ def skasuj(request):
 	return lista(request)
 
 def lista(request):
-	logger.error('...lista')
 	from app.models import Pug
 	mopsy = Pug.objects.all()
+	for m in mopsy:
+		logger.info('... id:'+m.id+' imie:'+m.imie+' kolor'+m.kolor+' wiek:'+m.wiek)
 	return render(request, 'index.html', context={'mopsy': mopsy})
