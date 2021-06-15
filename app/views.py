@@ -19,7 +19,7 @@ def dodaj(request):
 	kolor = request.POST.get("kolor", "?")
 	wiek = request.POST.get("wiek", "?")
 	if not imie:
-		return dodaj(request, 'Imie mopsa nie moze byc puste !')
+		return nowy(request, 'Imie mopsa nie moze byc puste !')
 	from app.models import Pug
 	try:
 		p = Pug(imie = imie, kolor = kolor, wiek = wiek)
