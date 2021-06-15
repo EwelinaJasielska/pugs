@@ -34,16 +34,15 @@
 	.btn-red {
 		background: darkred;
 	}
+	.msg-error {
+		color: darkred;
+	}
 
 	</style>
 </head>
 <body class='app-common'>
-{% if messages %}
-<ul class="messages">
-	{% for message in messages %}
-	<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-	{% endfor %}
-</ul>
+{% if error %}
+	<p class="msg-error">{{error}}</p>
 {% endif %}
 <picture>
 	<source type="image/webp" srcset="https://media0.giphy.com/media/11kgieHVYW53lC/giphy.webp?cid=82a1493bcwdnt4uej9ravx3uiqbqp1gmoyjli5vf8thrp9g0&amp;rid=giphy.webp&amp;ct=g">

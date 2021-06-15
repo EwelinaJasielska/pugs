@@ -19,9 +19,7 @@ def dodaj(request):
 	kolor = request.POST.get("kolor", "?")
 	wiek = request.POST.get("wiek", "?")
 	if not imie:
-		from django.contrib import messages
-		messages.info(request, 'Imie mopsa nie moze byc puste !!!')
-		return lista(request, messages)
+		return lista(request, 'Imie mopsa nie moze byc puste !')
 	from app.models import Pug
 	try:
 		p = Pug(imie = imie, kolor = kolor, wiek = wiek)
@@ -31,16 +29,19 @@ def dodaj(request):
 		logger.error('...insert ERROR')
 	return lista(request)
 
-def skasuj(request, id):
+def skasuj(request, id = 0):
 	logger.info('...skasuj')
+	if id==0:
+		logger.info('...skasuj ERROR')
+		return lista(request, "Nie udało się usunąć mopsa !")
 	from app.models import Pug
 	pug = Pug.objects.get(id = id) 
 	pug.delete()
 	return lista(request)
 
-def lista(request, messages = None):
+def lista(request, error = ""):
 	from app.models import Pug
 	mopsy = Pug.objects.all()
 	for m in mopsy:
 		logger.info('... id:'+str(m.id)+' imie:'+m.imie+' kolor'+m.kolor+' wiek:'+m.wiek)
-	return render(request, 'index.html', context={'mopsy': mopsy, 'messages': messages})
+	return render(request, 'index.html', context={'mopsy': mopsy, 'error': error})
